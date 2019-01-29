@@ -1,0 +1,21 @@
+<div class="contents row">
+  <h4>New article</h4>
+    <%= form_for @articles do |f| %>
+      <p>
+        <%= f.label :image, "image" %><br>
+        <%= f.text_area :image %>
+      </p>
+      <p>
+        <%= f.label :title, "title" %><br>
+        <%= f.text_area :title %>
+      </p>
+      <p>
+        <%= f.label :content, "content" %><br>
+        <%= f.text_area :content %>
+      </p>
+      <button class="btn waves-effect waves-light" type="submit" name="action">
+        <%= f.submit "submit" %>
+      </button>
+      <a class="btn" href="/">back</a>
+  <% end %>
+</div>

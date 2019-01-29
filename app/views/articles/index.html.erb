@@ -1,0 +1,55 @@
+<html>
+<head>
+   <title>Materialize_Blog</title>
+  <style type ="text/css" href="./style.css"></style>
+  <link href ="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src ="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity ="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin ="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name ="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <link href ="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href ="./materialize/css/materialize.css" rel="stylesheet" media="screen,projection" />
+</head>
+<body>
+  <nav class ="blue-grey darken-4">
+    <div class ="nav-wrapper">
+      <a href ="#" class="brand-logo center">Pixerialize</a>
+      <ul class ="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+        <ul class ="nav">
+         <li><%= link_to "New article", "/articles/new", method: :get %></li>
+         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+         <li><%= link_to "Sing in", new_user_session_path, method: :post %></li>
+         <li><%= link_to "Sign up", new_user_registration_path, method: :get %></li>
+        <% end %>
+        </ul>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col s3 blue-grey lighten-5" style= "height: 1600px;">
+        <!-- Grey navigation panel -->
+      <p><img src="https://images.pexels.com/photos/1793307/pexels-photo-1793307.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
+      <p><img src="https://images.pexels.com/photos/1793309/pexels-photo-1793309.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
+      <p><img src="https://images.pexels.com/photos/1769409/pexels-photo-1769409.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
+      <p><img src="https://images.pexels.com/photos/1769398/pexels-photo-1769398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
+    </div>
+
+  <div class="col s12 m9"  style= "height: 1600px;">
+    <div class ="card"   style= "height: 1580px;">
+      <ul class ="list_article" style="list-style:none;">
+        <% @articles.each do |article| %>
+          <%= render partial: "article", locals: { article: article } %>
+          <br><br><br>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

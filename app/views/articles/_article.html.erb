@@ -1,0 +1,18 @@
+<li>
+  <h4><%= article.title %></h4>
+  <% if article.image != "" %>
+  <div class ="card-image">
+    <img src ="<%= article.image %>" width = "100%",height = "200px">
+  </div>
+  <% end %>
+  <div class ="card-content">
+  <%= article.content %>
+  </div>
+  <% if user_signed_in? %>
+  <div class ="card-action left-align">
+<!--             <a class ="btn blue" href="/users/<%= current_user.id %>">Show</a> -->
+    <a class ="btn blue" href="/articles/<%= article.id %>/edit">Edit</a>
+    <a class ="btn blue" data-method="delete" href="/articles/<%= article.id %>">Destroy</a>
+  </div>
+  <% end %>
+</li>
