@@ -1,6 +1,6 @@
 <html>
 <head>
-   <title>Materialize_Blog</title>
+  <title>miniblog</title>
   <style type ="text/css" href="./style.css"></style>
   <link href ="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -13,15 +13,26 @@
   <meta name ="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
   <link href ="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href ="./materialize/css/materialize.css" rel="stylesheet" media="screen,projection" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('.slider').bxSlider({
+            auto: true,
+            pause: 5000,
+        });
+    });
+    </script>
 </head>
 <body>
   <nav class ="blue-grey darken-4">
     <div class ="nav-wrapper">
-      <a href ="#" class="brand-logo center">Pixerialize</a>
       <ul class ="right hide-on-med-and-down">
         <% if user_signed_in? %>
         <ul class ="nav">
-         <li><%= link_to "New article", "/articles/new", method: :get %></li>
          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
         <% else %>
          <li><%= link_to "Sing in", new_user_session_path, method: :post %></li>
@@ -29,25 +40,61 @@
         <% end %>
         </ul>
       </ul>
+      <div class="side-nav-button">
+          <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+        <ul id="slide-out" class="sidenav sidenav-fixed black">
+          <li>
+            <ul class="collapsible">
+              <li>
+                <div class="slider" style="height: 250px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                  <img src="http://switch-box.net/wp-content/uploads/2015/01/free-resources-mac-photos-06.jpg" style = "height: 270px">
+                  <img src="https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m67998550544_1.jpg?1544583861" style = "height: 270px;">
+                  <img src="https://stat.ameba.jp/user_images/20170312/11/core-tenshodo/ab/64/j/o0960096013887923647.jpg?caw=800" style = "height: 270px;">
+                </div>
+                  <ul>
+                    <a style="text-align:center;">Takahisa Kawaguchi</a>
+                    <li><a href="/" class="active" style = "color:white"><i class="fa fa-home fa-2x" style="color:orange;"></i> Home</a></li>
+                    <li><a href="/blog" class="side--blog" style = "color:white"><i class="fa fa-terminal fa-2x" style="color:yellow;"></i> Blog</a></li>
+                    <li><a href="/archive" class="side--archive" style = "color:white"><i class="fa fa-archive fa-2x" style="color:blue;"></i> Archive</a></li>
+                    <li><a href="/portfolio" class="side--projects" style = "color:white"><i class="fa fa-code fa-2x"style="color:green;"></i> Projects</a></li>
+                    <li><a href="/about" class="side--about" style = "color:white"><i class="fa fa-child fa-2x" style="color:red;"></i> About</a></li>
+                    <li><a href="/contact" class="side--contact" style = "color:white"><i class="fa fa-send fa-2x" style="color:purple;"></i> Contact</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </ul>
+      </a>
     </div>
   </nav>
-  <div class="row">
-    <div class="col s3 blue-grey lighten-5" style= "height: 1600px;">
-        <!-- Grey navigation panel -->
-      <p><img src="https://images.pexels.com/photos/1793307/pexels-photo-1793307.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
-      <p><img src="https://images.pexels.com/photos/1793309/pexels-photo-1793309.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
-      <p><img src="https://images.pexels.com/photos/1769409/pexels-photo-1769409.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
-      <p><img src="https://images.pexels.com/photos/1769398/pexels-photo-1769398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style= "width: 100%;padding-top: 40px;"></p>
-    </div>
-
-  <div class="col s12 m9"  style= "height: 1600px;">
-    <div class ="card"   style= "height: 1580px;">
-      <ul class ="list_article" style="list-style:none;">
-        <% @articles.each do |article| %>
-          <%= render partial: "article", locals: { article: article } %>
-          <br><br><br>
-        <% end %>
-      </ul>
+  <div class="all-body-click-region  inner__wrapper" style="display: block;">
+    <div class="cover__container  global-text-color" style="display: block;">
+      <h2 class="body-content" style="text-align: center;">Pixerialize<br></h2>
+      <h4 class="body-content2" style="text-align: center;">best free stock photos ＆ movies
+        <br>During the download, you are requested to click affiliate</h4>
+<!--         <div class="col s12 m9"  style= "height: 800px;width: 500;text-align: center"> -->
+          <div class ="card"   style= "height: 200px;">
+           <ul class ="list_article" style="list-style:none;">
+             <% @articles.each do |article| %>
+                <%= render partial: "article", locals: { article: article } %>
+                <br><br><br>
+             <% end %>
+           </ul>
+         </div>
+       </div>
+        <div style="text-align:center;margin-top:50px;">
+          <a href= /articles/new class="waves-effect  waves-light  btn  btn-large  opac-btn">
+            Writing
+          </a></br></br>
+          <a href= https://twitter.com/hideandfire2017 class="waves-effect  waves-light  btn  btn-large  opac-btn">
+            Twitter
+          </a>
+          <a href= https://github.com/yukitohiroki class="waves-effect  waves-light  btn  btn-large  opac-btn">
+            Github
+          </a>
+      </div>
     </div>
   </div>
 </div>
