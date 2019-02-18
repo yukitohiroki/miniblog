@@ -25,25 +25,33 @@
             pause: 5000,
         });
     });
-    </script>
+  </script>
+  <script type="text/javascript">
+    (function ($) {
+    $(function () {
+      $('.button-collapse').sideNav();
+    });
+    })(jQuery);
+  </script>
+
 </head>
 <body>
   <nav class ="blue-grey darken-4">
-    <div class ="nav-wrapper">
-      <ul class ="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-        <ul class ="nav">
-         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-         <li><%= link_to "Sing in", new_user_session_path, method: :post %></li>
-         <li><%= link_to "Sign up", new_user_registration_path, method: :get %></li>
-        <% end %>
-        </ul>
+    <ul class ="right hide-on-med-and-down">
+    <% if user_signed_in? %>
+    <ul class ="nav">
+     <li ><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+     <li><%= link_to "Sing in", new_user_session_path, method: :post %></li>
+     <li><%= link_to "Sign up", new_user_registration_path, method: :get %></li>
+    <% end %>
+    </ul>
       </ul>
+    <div class ="nav-wrapper container">
       <div class="side-nav-button">
-          <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
-        <ul id="slide-out" class="sidenav sidenav-fixed black">
+        <ul class="side-nav" id="mobile-demo" style = "background-color: black ">
           <li>
             <ul class="collapsible">
               <li>
@@ -70,31 +78,42 @@
     </div>
   </nav>
   <div class="all-body-click-region  inner__wrapper" style="display: block;">
+    <img src="https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=350.0&amp;w=1400" srcset="https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=250.0&amp;w=1000 1000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=375.0&amp;w=1500 1500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=500.0&amp;w=2000 2000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=625.0&amp;w=2500 2500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=750.0&amp;w=3000 3000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=875.0&amp;w=3500 3500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1000.0&amp;w=4000 4000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1250.0&amp;w=5000 5000w">
     <div class="cover__container  global-text-color" style="display: block;">
       <h2 class="body-content" style="text-align: center;">Pixerialize<br></h2>
       <h4 class="body-content2" style="text-align: center;">best free stock photos ＆ movies
         <br>During the download, you are requested to click affiliate</h4>
 <!--         <div class="col s12 m9"  style= "height: 800px;width: 500;text-align: center"> -->
-          <div class ="card"   style= "height: 200px;">
-           <ul class ="list_article" style="list-style:none;">
-             <% @articles.each do |article| %>
-                <%= render partial: "article", locals: { article: article } %>
-                <br><br><br>
-             <% end %>
-           </ul>
-         </div>
-       </div>
         <div style="text-align:center;margin-top:50px;">
-          <a href= /articles/new class="waves-effect  waves-light  btn  btn-large  opac-btn">
+          <% if user_signed_in? %>
+          <a href= /articles/new class="waves-effect  waves-light  btn  btn-large  opac-btn"
+          style ="background: #FFD700;color: #000;font-size: 20px;border: 2px double #fff;">
             Writing
           </a></br></br>
-          <a href= https://twitter.com/hideandfire2017 class="waves-effect  waves-light  btn  btn-large  opac-btn">
+          <a href= https://twitter.com/hideandfire2017 class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #3399FF;color: #000;font-size: 20px;border: 2px double #fff;">
             Twitter
           </a>
-          <a href= https://github.com/yukitohiroki class="waves-effect  waves-light  btn  btn-large  opac-btn">
+          <a href= https://github.com/yukitohiroki class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #9900FF;color: #000;font-size: 20px;border: 2px double #fff;">
             Github
           </a>
+          <% else %>
+          <a href= https://twitter.com/hideandfire2017 class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #3399FF;color: #000;font-size: 20px;border: 2px double #fff;">
+            Twitter
+          </a>
+          <a href= https://github.com/yukitohiroki class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #9900FF;color: #000;font-size: 20px;border: 2px double #fff;">
+            Github
+         </a>
+        <% end %>
       </div>
+      <div class ="card" style= "height: 200px;background-color: #000;">
+       <ul class ="list_article" style="list-style:none;">
+         <% @articles.each do |article| %>
+            <%= render partial: "article", locals: { article: article } %>
+            <br><br><br>
+         <% end %>
+       </ul>
+     </div>
+     </div>
     </div>
   </div>
 </div>
