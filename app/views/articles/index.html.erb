@@ -1,112 +1,196 @@
 <html>
 <head>
-  <title>miniblog</title>
-  <style type ="text/css" href="./style.css"></style>
-  <link href ="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <script src ="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity ="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin ="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name ="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-  <link href ="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href ="./materialize/css/materialize.css" rel="stylesheet" media="screen,projection" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-        $('.slider').bxSlider({
-            auto: true,
-            pause: 5000,
-        });
-    });
-  </script>
-  <script type="text/javascript">
-    (function ($) {
-    $(function () {
-      $('.button-collapse').sideNav();
-    });
-    })(jQuery);
-  </script>
-
+  <link href ="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
+
 <body>
-  <nav class ="blue-grey darken-4">
-    <ul class ="right hide-on-med-and-down">
-    <% if user_signed_in? %>
-    <ul class ="nav">
-     <li ><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-    <% else %>
-     <li><%= link_to "Sing in", new_user_session_path, method: :post %></li>
-     <li><%= link_to "Sign up", new_user_registration_path, method: :get %></li>
-    <% end %>
-    </ul>
-      </ul>
-    <div class ="nav-wrapper container">
-      <div class="side-nav-button">
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      </div>
-        <ul class="side-nav" id="mobile-demo" style = "background-color: black ">
+  <header>
+
+    <ul id="slide-out" class="sidenav sidenav-fixed">
           <li>
             <ul class="collapsible">
               <li>
-                <div class="slider" style="height: 250px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                  <img src="http://switch-box.net/wp-content/uploads/2015/01/free-resources-mac-photos-06.jpg" style = "height: 270px">
-                  <img src="https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m67998550544_1.jpg?1544583861" style = "height: 270px;">
-                  <img src="https://stat.ameba.jp/user_images/20170312/11/core-tenshodo/ab/64/j/o0960096013887923647.jpg?caw=800" style = "height: 270px;">
+               <div class="profile-image" style = "height: 200px;">
+                <!--  <img src="https://cdn0.scrvt.com/scrival/e9dca9078eb1b845/193cbaee982c/v/9135e2147e6a/apple-device.jpg" style = "height:260px;"> -->
                 </div>
+                <!-- Takahisa Kawaguchi Pro Front-end and Web Developer  HTML・CSS・Ruby・Rails  JavaScript・jQuery-->
                   <ul>
-                    <a style="text-align:center;">Takahisa Kawaguchi</a>
-                    <li><a href="/" class="active" style = "color:white"><i class="fa fa-home fa-2x" style="color:orange;"></i> Home</a></li>
-                    <li><a href="/blog" class="side--blog" style = "color:white"><i class="fa fa-terminal fa-2x" style="color:yellow;"></i> Blog</a></li>
-                    <li><a href="/archive" class="side--archive" style = "color:white"><i class="fa fa-archive fa-2x" style="color:blue;"></i> Archive</a></li>
-                    <li><a href="/portfolio" class="side--projects" style = "color:white"><i class="fa fa-code fa-2x"style="color:green;"></i> Projects</a></li>
-                    <li><a href="/about" class="side--about" style = "color:white"><i class="fa fa-child fa-2x" style="color:red;"></i> About</a></li>
-                    <li><a href="/contact" class="side--contact" style = "color:white"><i class="fa fa-send fa-2x" style="color:purple;"></i> Contact</a></li>
+<!--                      <li><h4 style = "text-align: center;font-size: 20px;text-align: center;font-size: 16px;padding: 10px 0 5px;font-weight: bold;">Takahisa Kawaguchi
+                     </h4></li> -->
+                               <!-- <ul id="nav-mobile" class="right hide-on-med-and-down"> -->
+            <li><a href = "/#"style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Home</a>
+                <a style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">About
+                </a></li>
+            <% if user_signed_in? %>
+            <!--   <ul class ="nav"> -->
+                 <li>
+                 <a href="/articles/new" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">New</a>
+                 <a href="/users/sign_out"  data-method="delete" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Sign out</a>
+                </li>
+                <% else %>
+                <li>
+                  <a href="/users/sign_in" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Sign in</a>
+                </li>
+               <!--  <li style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;" href = "http://localhost:3000/users/sign_in"> -->
+                                <li>
+                  <a href="/users/sign_up" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Sign up</a>
+                </li>
+            <!--     <li style = "text-align: center; border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;"><%= link_to "Sign up", new_user_registration_path, method: :get %> --></li>
+            <% end %>
+<!--           </ul> -->
+<!--     <%= link_to "Sing in", new_user_session_path, method: :post %></li>
+          <! <li style = "padding-top: 20px;"> -->
+   <!--        <span class="icon">
+            <i class="material-icons circle green">phone</i>
+          </span> -->
+          <div style = "padding-left: 30px;padding-top: 10px;">
+          <a class="icon"  href = "https://twitter.com/hideandfire2017?lang=ja">
+            <i class="fab fa-twitter circle blue"></i>
+          </a>
+
+          <a class="icon" href = "https://www.facebook.com/profile.php?id=100004323938556">
+            <i class="fab fa-facebook circle blue darken-4"></i>
+          </a>
+
+          <a class="icon" href = "https://github.com/yukitohiroki">
+            <i class="fab fa-github circle purple darken-3"></i>
+          </a>
+
+          <a class="icon" href = "https://www.youtube.com/channel/UCMGH8-9Dh3EdsM1KHoCmuQw">
+            <i class="fab fa-youtube circle red accent-4"></i>
+          </a>
+          </div>
+<!--           <div class="icon">
+            <i class="fab fa-google-plus circle red darken-2"></i>
+          </div>
+
+
+          <div class="icon">
+            <i class="fab fa-dribbble circle pink lighten-1"></i>
+          </div>
+
+          <div class="icon">
+            <i class="fab fa-etsy circle deep-orange darken-3"></i>
+          </div>
+
+          <div class="icon">
+            <i class="fab fa-snapchat-ghost circle yellow darken-1"></i>
+          </div>
+
+          <div class="icon">
+            <i class="fab fa-apple circle"></i>
+          </div> -->
+                   <!--  <li><a href="/" class="active" style = "padding-left: 50px;"><i class="fa fa-home fa-2x" style="color:orange;padding-left: 50px;"></i> Home</a></li> -->
+                   <!--  <li><a href="/about" class="side--about"> About</a></li> -->
+              <!--       <li><a href="/contact" class="side--contact" style = "padding-left: 50px;"><i class="fa fa-child fa-2x" style="color:purple;text-align: center;padding-left: 50px;">
+                    </i>About</a></li>
+
+                    <li><a href="/contact" class="side--contact"><i class="fa fa-paper-plane fa-2x" style="color:yellow;padding-left: 50px;"></i> Contact</a></li> -->
+<!--                     <li><a href="/blog" class="side--blog"><i class="fa fa-terminal fa-2x" style="color:yellow;"></i> Blog</a></li>
+                    <li><a href="/archive" class="side--archive"><i class="fa fa-archive fa-2x" style="color:blue;"></i> Archive</a></li>
+                    <li><a href="/portfolio" class="side--projects"><i class="fa fa-code fa-2x"style="color:green;"></i> Projects</a></li> -->
+
                   </ul>
                 </li>
               </ul>
             </li>
           </ul>
-        </ul>
-      </a>
-    </div>
-  </nav>
-  <div class="all-body-click-region  inner__wrapper" style="display: block;">
-    <img src="https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=350.0&amp;w=1400" srcset="https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=250.0&amp;w=1000 1000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=375.0&amp;w=1500 1500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=500.0&amp;w=2000 2000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=625.0&amp;w=2500 2500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=750.0&amp;w=3000 3000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=875.0&amp;w=3500 3500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1000.0&amp;w=4000 4000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1250.0&amp;w=5000 5000w">
-    <div class="cover__container  global-text-color" style="display: block;">
-      <h2 class="body-content" style="text-align: center;">Pixerialize<br></h2>
-      <h4 class="body-content2" style="text-align: center;">best free stock photos ＆ movies
-        <br>During the download, you are requested to click affiliate</h4>
-<!--         <div class="col s12 m9"  style= "height: 800px;width: 500;text-align: center"> -->
-        <div style="text-align:center;margin-top:50px;">
+
+   <!--  <div class="all-body-click-region  inner__wrapper" style="display: block;"> -->
+      <section class="no-padding bg-triangle-greylight-ln-blue bg-dark-image" style="background-image:none, linear-gradient(to right, rgba(71,81,92, .75) 0%, rgba(71,81,92,.75) 100%), url(https://cdn0.scrvt.com/scrival/e9dca9078eb1b845/193cbaee982c/v/9135e2147e6a/apple-device.jpg);background-attachment:scroll, scroll, scroll;background-clip:border-box, border-box, border-box;background-origin:padding-box, padding-box, padding-box;background-position:0% 0%, 0% 0%, center center;background-repeat:repeat, repeat, no-repeat;background-size:auto, auto, cover;background-color:transparent;height:400px;">
+      <nav class = "transparent">
+      <div class="nav-wrapper" style = "text-align: center">
+       <a href="#" class="title" style = "font-family: 'Roboto Slab';font-size: 25px;display: inline-block;font-weight: 700;">Materialized Blog</a>
+
+   <!--      </ul> -->
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+     </nav>
+　　 </section>
+<!--     <img src="https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=350.0&amp;w=1400" srcset="https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=250.0&amp;w=1000 1000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=375.0&amp;w=1500 1500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=500.0&amp;w=2000 2000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=625.0&amp;w=2500 2500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=750.0&amp;w=3000 3000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=875.0&amp;w=3500 3500w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1000.0&amp;w=4000 4000w,https://images.pexels.com/photos/1674817/pexels-photo-1674817.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=1250.0&amp;w=5000 5000w"> -->
+    <!-- <div class="cover__container  global-text-color" style="display: block;"> -->
+<!--  <div class="body-content2" style="text-align: center;width:100%;serif;letter-spacing: 0;
+       position: relative;margin-top: 60px;color:black;display: inline-block;font-size: 25px;color:white;">best free stock photos ＆ movies
+        <br>During the download, you are requested to click affiliate</div> -->
+<!--         <div class="col s12 m9"  style= "height: 800px;width: 500;text-align: center"> --> 
+
+
+<!--    <div class="demo-blog__posts mdl-grid">
+          <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
+            <div class="mdl-card__media mdl-color-text--grey-50">
+              <h3><a href="entry.html">Coffee Pic</a></h3>
+              </div>
+            </div>
+          </div>
+          <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__media mdl-color-text--grey-50">
+              <h3><a href="entry.html">On the road again</a></h3>
+            </div>
+            <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+              Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+            </div>
+            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+              <div class="minilogo"></div>
+              <div>
+                <strong>The Newist</strong>
+              </div>
+            </div>
+          </div>
+          <div class="mdl-card amazing mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__title mdl-color-text--grey-50">
+              <h3 class="quote"><a href="entry.html">I couldn’t take any pictures but this was an amazing thing…</a></h3>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+              Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+            </div>
+            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+              <div class="minilogo"></div>
+              <div>
+                <strong>The Newist</strong>
+              </div>
+            </div>
+          </div>
+          <div class="mdl-card shopping mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__media mdl-color-text--grey-50">
+              <h3><a href="entry.html">Shopping</a></h3>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+              Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+            </div>
+            <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+              <div class="minilogo"></div>
+              <div>
+                <strong>The Newist</strong>
+              </div>
+            </div>
+          </div> -->
+        </div>
+       <!--  style="list-style:none;  background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 161, .8)),
+  url(http://www.webcreatorbox.com/sample/images/bg-cherrybrossam.jpg);
+  background-size: cover;" -->
+ <!--          <div style="text-align:center;margin-top:50px;">
           <% if user_signed_in? %>
           <a href= /articles/new class="waves-effect  waves-light  btn  btn-large  opac-btn"
-          style ="background: #FFD700;color: #000;font-size: 20px;border: 2px double #fff;">
+          style ="background: #263238;color: white;font-size: 20px;border: 2px double #fff;">
             Writing
-          </a></br></br>
-          <a href= https://twitter.com/hideandfire2017 class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #3399FF;color: #000;font-size: 20px;border: 2px double #fff;">
-            Twitter
           </a>
-          <a href= https://github.com/yukitohiroki class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #9900FF;color: #000;font-size: 20px;border: 2px double #fff;">
-            Github
-          </a>
-          <% else %>
-          <a href= https://twitter.com/hideandfire2017 class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #3399FF;color: #000;font-size: 20px;border: 2px double #fff;">
-            Twitter
-          </a>
-          <a href= https://github.com/yukitohiroki class="waves-effect  waves-light  btn  btn-large  opac-btn" style ="background: #9900FF;color: #000;font-size: 20px;border: 2px double #fff;">
-            Github
-         </a>
         <% end %>
-      </div>
-      <div class ="card" style= "height: 200px;background-color: #000;">
-       <ul class ="list_article" style="list-style:none;">
+      </div> -->
+
+       <ul class ="list_article">
          <% @articles.each do |article| %>
             <%= render partial: "article", locals: { article: article } %>
             <br><br><br>
@@ -117,5 +201,32 @@
     </div>
   </div>
 </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, {});
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems, {});
+    });
+    $(document).ready(function(){
+      $('.slider').bxSlider({
+          auto: true,
+          pause: 5000,
+      });
+    });
+  </script>
+  <style>
+    header, main, footer {
+      padding-left: 300px;
+    }
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+    .sidenav .collapsible>.active .collapsible-header .chevron {
+        transform: rotate(-90deg);
+    }
+  </style>
 </body>
 </html>
