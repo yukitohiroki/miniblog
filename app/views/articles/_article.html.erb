@@ -2,12 +2,9 @@
   <div class="col s12 m6">
    <h5 class="header"><%= article.title %></h5>
   <div class="card horizontal" style = "font-weight: :500px;height:300px;">
-<!--   <div class ="card-title" style = "color:#263238;"> -->
-
-<!--   </div> -->
   <% if article.image != "" %>
   <div class ="card-image">
-    <img src ="<%= article.image %>" style ="width: 400px;height:300px;">
+    <img src ="<%= article.image %>" style ="width: 600px;height:300px;">
   </div>
   <% end %>
   <div class="card-stacked">
@@ -16,23 +13,8 @@
   </div>
   <% if user_signed_in? %>
   <div class ="card-action">
-<!--             <a class ="btn blue" href="/users/<%= current_user.id %>">Show</a> -->
     <a class ="btn" href="/articles/<%= article.id %>/edit" style ="background-color: black;font-size: 15px;border: 2px double #fff;">Edit</a>
     <a class ="btn" data-method="delete" href="/articles/<%= article.id %>" style ="background: black;font-size: 15px;border: 2px double #fff;">Destroy</a>
   </div>
   <% end %>
 </li>
-<!--       <div class="card-image">
-        <img src="https://lorempixel.com/100/300/nature/6"> -->
-        <!-- <span class="card-title" style = "font-weight: 500;width:100px;">Coffie</span> --> 
-      <!-- </div>
- -->      <!-- <div class="card-stacked">
-        <div class="card-content" style = "color:gray;"> -->
-<!--           <p>Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.</p> -->
-<!--         </div> -->
-<!--         <div class="card-action">
-          <a href="#">This is a link</a> -->
-        </div>
-      </div>
-    </div>
-  </div>

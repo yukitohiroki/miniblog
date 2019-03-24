@@ -27,6 +27,9 @@ class ArticlesController < ApplicationController
     article.update(blog_params) if article.user_id == current_user.id
   end
 
+  def show
+  end
+
   private
     def blog_params
       params.require(:article).permit(:title, :image, :content).merge(user_id: current_user.id,)
