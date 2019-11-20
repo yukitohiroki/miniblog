@@ -1,20 +1,24 @@
-<li>
+
   <div class="col s12 m6">
-   <h5 class="header"><%= article.title %></h5>
-  <div class="card horizontal" style = "font-weight: :500px;height:300px;">
+   <h6 class="header"><%= article.title %></h6>
+  <div class="card horizontal" style = "font-weight: 200px;">
   <% if article.image != "" %>
-  <div class ="card-image">
-    <img src ="<%= article.image %>" style ="width: 600px;height:300px;">
-  </div>
+    <div class ="card-image" style = "width:30%;" >
+    <img src ="<%= article.image %>" style = "height:150px;">
+    </div>
   <% end %>
   <div class="card-stacked">
-   <div class ="card-content" style = "color:gray;min-height: 225px;">
+   <div class ="card-content" style = "color:gray;font-size:15px">
   <p><%= article.content %></p>
   </div>
-  <% if user_signed_in? %>
   <div class ="card-action">
+  <% if user_signed_in? %>
     <a class ="btn" href="/articles/<%= article.id %>/edit" style ="background-color: black;font-size: 15px;border: 2px double #fff;">Edit</a>
-    <a class ="btn" data-method="delete" href="/articles/<%= article.id %>" style ="background: black;font-size: 15px;border: 2px double #fff;">Destroy</a>
-  </div>
+    <a class ="btn" data-method="delete" href="/articles/<%= article.id %>" style ="background: white;color:black;font-size: 15px;border: 2px double #fff;">Destroy</a>
+  <% else %>
+  <a href="/articles/<%= article.id %>">Read More</a>
   <% end %>
-</li>
+  </div>
+  </div>
+  </div>
+  </div>

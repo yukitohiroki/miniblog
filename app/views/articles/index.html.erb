@@ -15,74 +15,159 @@
 
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!--   <script>
+$(document).ready(function() {
+    window.index = lunr(function () {
+      this.field('title', {boost: 10});
+      this.field('body');
+      this.ref('href');
+    });
+    window.index.pipeline.reset();
+
+    window.index.add({
+      href: 'http://localhost:3000/#',
+      title: 'About',
+      body: 'Created and designed by Google, Material Design is a design language that combines the classic principles of successful design along with innovation and technology. Google"s goal is to develop a system of design that allows for a unified user experience across all their products on any platform.'
+    });
+
+    window.index.add({
+      href: 'http://localhost:3000/#',
+      title: 'Autocomplete',
+      body: 'Add an autocomplete dropdown below your input to suggest possible values in your form. You can populate the list of autocomplete options dynamically as well.'
+    });
+
+    window.index.add({
+      href: 'http://localhost:3000/#',
+      title: 'Badges',
+      body: 'Badges can notify you that there are new or unread messages or notifications.'
+    });
+
+
+    // wondowのonloadイベントに追加
+    var start = function(){
+      new IncSearch.ViewTable(
+        'search',
+        'search-results',
+        list,
+        {
+         startElementText: '<table><tr><th width="50%">ゲーム</th>',
+         ignoreCase: false
+        }
+      );
+    };
+    window.addEventListener ?
+      window.addEventListener('load', start, false) :
+      window.attachEvent('onload', start);
+  </script>
+ -->
+  <style>
+
+    header, body, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, body, footer {
+        padding-left: 0;
+      }
+
+    }
+  </style>
+
 </head>
 <body>
   <header>
-    <ul id="slide-out" class="sidenav sidenav-fixed">
-      <li class="user-details cyan darken-2" style = "background-image:url(http://demo.geekslabs.com/materialize-v1.0/images/user-bg.jpg);">
-        <div class="row">
-          <div class="col col s4 m4 l4">
-            <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+    <ul id="slide-out" class="sidenav sidenav-fixed" style="transform: translateX(0px);">
+            <h4 style = "text-align: center;font-size: 20px;">Yukito Hiroki</h4>
+            <h5 style = "text-align: center;font-size: 15px;">Tech Expert Web Engenner</h5>
+          <path d="M0 0h24v24H0z" fill="none"></path></svg></a><ul id="version-dropdown" class="dropdown-content" tabindex="0">
+          </ul>
+        </li>
+        <li class="search">
+          <div class="search-wrapper">
+            <input id="search" placeholder="Search">
+            <div class="search-results"></div>
+          </div>
+        </li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a href="/articles/shows" class="collapsible-header waves-effect waves-teal"  tabindex="0">Profile</a></li>
+            <li class="bold"><a href="/articles/new" class="collapsible-header waves-effect waves-teal"  tabindex="0">Article</a></li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal" tabindex="0">Experience</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="color.html">Color</a></li>
+                  <li><a href="grid.html">Grid</a></li>
+                  <li><a href="helpers.html">Helpers</a></li>
+                  <li><a href="media-css.html">Media</a></li>
+                  <li><a href="pulse.html">Pulse</a></li>
+                  <li><a href="sass.html">Sass</a></li>
+                  <li><a href="shadow.html">Shadow</a></li>
+                  <li><a href="table.html">Table</a></li>
+                  <li><a href="css-transitions.html">Transitions</a></li>
+                  <li><a href="typography.html">Typography</a></li>
+                </ul>
               </div>
-                <div class="col col s8 m8 l8">
-                </div>
-                  <a class="user-roal">Takahisa Kawaguchi</a>
-                  <p class="user-roal">Administrator</p>
-                </div>
-              </li>
-              <li>
-                <a href = "/#" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Home</a>
-                <a href = "/#" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">About</a>
-              </li>
-              <% if user_signed_in? %>
-              <li>
-                <a href="/articles/new" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">New</a>
-                <a href="/users/sign_out"  data-method="delete" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Sign out</a>
-              </li>
-              <% else %>
-              <li>
-                <a href="/users/sign_in" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Sign in</a>
-              </li>
-              <li>
-                <a href="/users/sign_up" style = "text-align: center;border-bottom: 1px solid rgba(0,0,0,.1);font-weight: 700;">Sign up</a>
-                </li>
-              <% end %>
-              <div style = "padding-left: 30px;padding-top: 10px;">
-                <a class="icon"  href = "https://twitter.com/hideandfire2017?lang=ja">
-                  <i class="fab fa-twitter circle blue"></i>
-                </a>
-
-                <a class="icon" href = "https://www.facebook.com/profile.php?id=100004323938556">
-                  <i class="fab fa-facebook circle blue darken-4"></i>
-                </a>
-
-                <a class="icon" href = "https://github.com/yukitohiroki">
-                  <i class="fab fa-github circle purple darken-3"></i>
-                </a>
-                <a class="icon" href = "https://www.youtube.com/channel/UCMGH8-9Dh3EdsM1KHoCmuQw">
-                  <i class="fab fa-youtube circle red accent-4"></i>
-                </a>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal" tabindex="0">Resources</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="badges.html">Badges</a></li>
+                  <li><a href="buttons.html">Buttons</a></li>
+                  <li><a href="breadcrumbs.html">Breadcrumbs</a></li>
+                  <li><a href="cards.html">Cards</a></li>
+                  <li><a href="collections.html">Collections</a></li>
+                  <li><a href="floating-action-button.html">Floating Action Button</a></li>
+                  <li><a href="footer.html">Footer</a></li>
+                  <li><a href="icons.html">Icons</a></li>
+                  <li><a href="navbar.html">Navbar</a></li>
+                  <li><a href="pagination.html">Pagination</a></li>
+                  <li><a href="preloader.html">Preloader</a></li>
+                </ul>
               </div>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
+            <li class="bold"><a class="collapsible-header waves-effect waves-teal" tabindex="0">Connect</a>
+              <div class="collapsible-body" style="">
+                <ul>
+                  <li><a href="autocomplete.html">Autocomplete</a></li>
+                  <li><a href="checkboxes.html">Checkboxes</a></li>
+                  <li><a href="chips.html">Chips</a></li>
+                  <li><a href="pickers.html">Pickers</a></li>
+                  <li><a href="radio-buttons.html">Radio Buttons</a></li>
+                  <li><a href="range.html">Range</a></li>
+                  <li><a href="select.html">Select</a></li>
+                  <li><a href="switches.html">Switches</a></li>
+                  <li><a href="text-inputs.html">Text Inputs</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+      </ul>
   </header>
-      <section class="no-padding bg-triangle-greylight-ln-blue bg-dark-image" style="background-image:none, linear-gradient(to right, rgba(71,81,92, .75) 0%, rgba(71,81,92,.75) 100%), url(https://cdn0.scrvt.com/scrival/e9dca9078eb1b845/193cbaee982c/v/9135e2147e6a/apple-device.jpg);background-attachment:scroll, scroll, scroll;background-clip:border-box, border-box, border-box;background-origin:padding-box, padding-box, padding-box;background-position:0% 0%, 0% 0%, center center;background-repeat:repeat, repeat, no-repeat;background-size:auto, auto, cover;background-color:transparent;height:400px;">
+      <section class="no-padding bg-triangle-greylight-ln-blue bg-dark-image" style="background-image:none, linear-gradient(to right, rgba(71,81,92, .75) 0%, rgba(71,81,92,.75) 100%), url(https://cdn0.scrvt.com/scrival/e9dca9078eb1b845/193cbaee982c/v/9135e2147e6a/apple-device.jpg);background-attachment:scroll, scroll, scroll;background-clip:border-box, border-box, border-box;background-origin:padding-box, padding-box, padding-box;background-position:0% 0%, 0% 0%, center center;background-repeat:repeat, repeat, no-repeat;background-size:auto, auto, cover;background-color:transparent;height:300px;">
       <nav class = "transparent">
       <div class="nav-wrapper" style = "text-align: center">
-        <a href="#" class="title" style = "font-family: 'Roboto Slab';font-size: 25px;display: inline-block;font-weight: 700;padding-right: 30px;">Materialized Blog</a>
+        <a href="#" class="title" style = "font-family: 'Roboto Slab';display: inline-block;font-weight: 800;font-size: 16px;">Materialized Blog</a>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class ="right">
+        <% if user_signed_in? %>
+         <li  style = "display: inline-block;font-family: 'Roboto Slab';display: inline-block;font-weight: 800;font-size: 10px;"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+         <li><%= link_to "Sign in", new_user_session_path, method: :post %></li>
+         <!-- <li><%= link_to "Sign up", new_user_registration_path, method: :get %></li> -->
+        <% end %>
+        </ul>
       </div>
      </nav>
     </section>
-       <ul class ="list_article">
+       <div class ="list_article">
+        <div class="row">
          <% @articles.each do |article| %>
             <%= render partial: "article", locals: { article: article } %>
-            <br><br><br>
          <% end %>
-       </ul>
+        </div>
+       </div>
      </div>
      </div>
     </div>
@@ -94,20 +179,12 @@
       var instances = M.Sidenav.init(elems, {});
       var elems = document.querySelectorAll('.collapsible');
       var instances = M.Collapsible.init(elems, {});
-    });
+    });var pc_width = 1080;
+    var device = (screen.width < 600 ? 'sp' : 'pc');
+    var view_mode = (device == 'pc' || document.cookie.indexOf('view_mode=pc') != -1 ? 'pc' : 'sp');
+    if (device == 'sp' && view_mode == 'pc') {
+        document.getElementsByName('viewport')[0].setAttribute('content', 'width=' + pc_width + ',initial-scale=1');
+    }
   </script>
-  <style>
-    header, main, footer {
-      padding-left: 300px;
-    }
-    @media only screen and (max-width : 992px) {
-      header, main, footer {
-        padding-left: 0;
-      }
-    }
-    .sidenav .collapsible>.active .collapsible-header .chevron {
-        transform: rotate(-90deg);
-    }
-  </style>
 </body>
 </html>

@@ -13,7 +13,6 @@
   }
 }
 
-
 .bx-controls.bx-has-controls-direction.bx-has-pager{
   display:none;
 }
@@ -39,40 +38,14 @@
     vertical-align: middle;
   }
 }
-
-.card-image {
-  position: relative;
-  }
-
-.card-image .fa {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 80px;
-  }
-
-.card {
-    box-sizing: border-box;
-    height: calc(100% - 1.5rem); /* margin の .5rem + 1rem を引いている */
-    padding-bottom: 76px; /* ボタン分浮かす */
-}
-
-.card .card-action {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-}
-
 .user-roal {
-    color: #fff;
+    color: black;
     margin-top: -16px;
-    font-size: 13px;
+    font-size: 15px;
     text-shadow: 1px 1px 1px #444;
 }
 
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
